@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print styles */
+@media print {
+  header,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background-color: white !important;
+  }
+
+  .clause-highlight {
+    border-bottom-width: 2px !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Clause highlight hover effect */
+.clause-highlight:hover {
+  filter: brightness(0.95);
+}
+
+/* User annotation styles */
+.user-annotation {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+  border-bottom: 2px solid #ef4444 !important;
+  box-shadow: 0 1px 0 0 rgba(239, 68, 68, 0.4) !important;
+}
+
+/* Responsive clause tags */
+@media (max-width: 640px) {
+  .table-cell-clauses {
+    max-width: 150px;
+  }
+
+  .table-cell-clauses span {
+    margin-bottom: 0.25rem;
+    display: inline-block;
+  }
+}
+
+/* Font definitions */
+.font-darker-grotesque {
+  font-family: var(--font-darker-grotesque), sans-serif;
+}
+
+.font-nunito {
+  font-family: var(--font-nunito), sans-serif;
+}
+
+/* Document viewer styles */
+.document-container {
+  position: relative;
+  overflow: auto;
+  padding: 0;
+}
+
+.document .page {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 24px auto;
+  position: relative;
+  border-radius: 4px;
+}
+
+/* Preserve formatting in document */
+.docx-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.docx-table td, .docx-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* Image handling */
+.document img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Dark mode document page styling */
+.dark .document .page {
+  background-color: white;
+  color: black;
+}
+
+/* Improved highlighting for better visibility */
+.clause-highlight {
+  position: relative;
+  cursor: pointer;
+  padding: 0 1px;
+  transition: all 0.2s ease;
+  border-radius: 2px;
+}
+
+.dark .clause-highlight {
+  mix-blend-mode: darken;
+}
+
